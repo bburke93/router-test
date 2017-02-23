@@ -1,21 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import NavLink from './NavLink'
+import { IndexLink } from 'react-router'
 
-class App extends Component {
+export default React.createClass({
   render() {
     return (
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h2>React Router </h2>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <ul role="nav">
+          <li><IndexLink to="/" activeClassName="active">Home</IndexLink></li>
+          <li><NavLink to="/teams">Sports Teams</NavLink></li>
+        </ul>
+      {this.props.children}
       </div>
-    );
+    )
   }
-}
-
-export default App;
+})
